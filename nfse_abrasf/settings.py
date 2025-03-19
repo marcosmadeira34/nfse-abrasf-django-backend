@@ -134,7 +134,19 @@ LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"  # Para onde o usuário será redirecionado após o login
 LOGOUT_REDIRECT_URL = "/login/"  # Para onde o usuário será redirecionado após logout
 
+# Para gerar os arquivos estáticos no Heroku, o Django precisa de um diretório.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Indica onde os arquivos estáticos são armazenados durante o desenvolvimento
+STATIC_URL = '/static/'
+
+# Utilize o Whitenoise para servir os arquivos estáticos
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Diretórios adicionais onde arquivos estáticos podem ser encontrados
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Seu diretório local de arquivos estáticos
+]
 
 INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
