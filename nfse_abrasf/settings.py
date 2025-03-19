@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://nfse-abrasf-project-633c01390d1d.herokuapp.com/']
 
 
 # Application definition
