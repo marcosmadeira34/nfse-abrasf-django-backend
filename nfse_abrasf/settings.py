@@ -130,7 +130,9 @@ GOOGLE_APPLICATION_CREDENTIALS = BASE_DIR / "credentials.json"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = "/extract/login/"
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"  # Para onde o usuário será redirecionado após o login
+LOGOUT_REDIRECT_URL = "/login/"  # Para onde o usuário será redirecionado após logout
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
