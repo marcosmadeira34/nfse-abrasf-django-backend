@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv()
 
@@ -78,12 +79,18 @@ WSGI_APPLICATION = 'nfse_abrasf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Verifique se a variável de ambiente HEROKU está configurada para determinar o ambiente
+if os.environ.get('HEROKU') == 'True':  # No Heroku, 'HEROKU' será True
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
-}
+else:  # Localmente, utilizaremos SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
