@@ -132,8 +132,8 @@ USE_TZ = True
 
 
 GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
-if GOOGLE_APPLICATION_CREDENTIALS and not os.path.isfile(GOOGLE_APPLICATION_CREDENTIALS):
-    raise ValueError("Arquivo de credenciais do Google não encontrado.")
+#if GOOGLE_APPLICATION_CREDENTIALS and not os.path.isfile(GOOGLE_APPLICATION_CREDENTIALS):
+ #   raise ValueError("Arquivo de credenciais do Google não encontrado.")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
