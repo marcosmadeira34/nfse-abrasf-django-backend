@@ -178,3 +178,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Defina um local correto para salvar os arquivos
 DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+
+
+print(f"O base dir é: {BASE_DIR}")
