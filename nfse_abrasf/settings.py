@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'nfse_abrasf.urls'
@@ -174,3 +175,6 @@ CELERY_TASK_SERIALIZER = "json"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Defina um local correto para salvar os arquivos
+DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
