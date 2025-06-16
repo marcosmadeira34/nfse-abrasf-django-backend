@@ -163,7 +163,7 @@ INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # Configuração do Celery
-CELERY_BROKER_URL = os.getenv('REDISCLOUD_URL', 'redis://localhost:6379/0')
+CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
 # Outras configurações do Celery
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
