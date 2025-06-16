@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import dj_database_url
+import ssl
 
 load_dotenv()
 
@@ -162,17 +163,23 @@ STATICFILES_DIRS = [
 INSTALLED_APPS += ['whitenoise.runserver_nostatic']
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
-# Configuração do Celery
-CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
-# Outras configurações do Celery
-CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-CELERY_ACCEPT_CONTENT = ["json"]
+# Configuração do Celery
+CELERY_BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
+
 CELERY_TASK_SERIALIZER = "json"
+CELERY_ACCEPT_CONTENT = ["json"]
+
+# SSL config para rediss://
+if REDIS_URL.startswith("rediss://"):
+    CELERY_REDIS_BACKEND_USE_SSL = {
+        "ssl_cert_reqs": ssl.CERT_NONE
+    }
 
 
 # Configurações de arquivos de mídia
-
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
