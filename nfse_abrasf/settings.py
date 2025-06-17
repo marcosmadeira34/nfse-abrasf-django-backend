@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['*', 'https://nfse-abrasf-project-633c01390d1d.herokuapp.com/']
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -117,9 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -144,7 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"  # Para onde o usuário será redirecionado após o login
-LOGOUT_REDIRECT_URL = "/login/"  # Para onde o usuário será redirecionado após logout
+LOGOUT_REDIRECT_URL = "/"  # Para onde o usuário será redirecionado após logout
 
 # Para gerar os arquivos estáticos no Heroku, o Django precisa de um diretório.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
