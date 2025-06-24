@@ -223,7 +223,7 @@ CIDADES_IBGE = {
 
 CSRF_TRUSTED_ORIGINS = [
     'https://nfse-abrasf-project-633c01390d1d.herokuapp.com', # Seu próprio domínio Django
-    'https://nfse-abrasf-streamlit-frontend-b3362614a366.herokuapp.com', # <-- O domínio do seu app Streamlit
+    #'https://nfse-abrasf-streamlit-frontend-b3362614a366.herokuapp.com', # <-- O domínio do seu app Streamlit
     # Se você usar um custom domain futuramente, adicione-o aqui também
     # 'https://www.meudominio.com',
     # 'https://meu-app-streamlit.com',
