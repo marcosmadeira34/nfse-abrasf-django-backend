@@ -219,3 +219,12 @@ CIDADES_IBGE = {
     for m in municipios_raw
     if "nome" in m and "codigo_ibge" in m and "codigo_uf" in m
 }
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://nfse-abrasf-project-633c01390d1d.herokuapp.com', # Seu próprio domínio Django
+    'https://nfse-abrasf-streamlit-frontend.herokuapp.com', # <-- O domínio do seu app Streamlit
+    # Se você usar um custom domain futuramente, adicione-o aqui também
+    # 'https://www.meudominio.com',
+    # 'https://meu-app-streamlit.com',
+]
